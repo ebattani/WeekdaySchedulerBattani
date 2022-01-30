@@ -24,6 +24,22 @@ $(document).ready(function() {
       }
     };
 
+    
+      //Calls the function on click
+      //Creates var so that they can be saved properly for recall out of local storage later
+      $(document).on('click', 'p', function(event) {
+        event.preventDefault();  
+    
+        let $index = $(this).attr('saveId');
+        let inputId = '#input-' + $index;
+        let $value = $(inputId).val();
+    
+        previousArray[$index] = $value;
+        localStorage.setItem("storedPlans", JSON.stringify(previousArray));
+
+      });  
+
+
     //If the iD is false then the hour24 is 13 and hour12 is 1
     if (iD) {
         hour24 = 13;
@@ -120,19 +136,5 @@ $(document).ready(function() {
                         $planner.append($rowDiv);
 
       };
-
-      //Calls the function on click
-      //Creates var so that they can be saved properly for recall out of local storage later
-    $(document).on('click', 'p', function(event) {
-        event.preventDefault();  
-    
-        let $index = $(this).attr('saveId');
-        let inputId = '#input-' + $index;
-        let $value = $(inputId).val();
-    
-        previousArray[$index] = $value;
-        localStorage.setItem("storedPlans", JSON.stringify(previousArray));
-
-      });  
 
   });
