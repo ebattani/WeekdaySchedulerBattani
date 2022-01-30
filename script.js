@@ -8,36 +8,6 @@ $(document).ready(function() {
     const now = moment().format('MMMM Do YYYY');
     let hour24 = moment().format('H');
     let hour12 = moment().format('h');
-  
-
-    //Decides color of row based upon current hour of the day
-    function rowColor ($hourRow, hour) { 
-  
-      if ( hour < hour24) {
-        $hourRow.css("background-color", "#d3d3d3")
-
-      } else if ( hour > hour24) {
-        $hourRow.css("background-color", "#77dd77")
-
-      } else {
-        $hourRow.css("background-color", "#ff6961")
-      }
-    };
-
-    
-      //Calls the function on click
-      //Creates var so that they can be saved properly for recall out of local storage later
-      $(document).on('click', 'p', function(event) {
-        event.preventDefault();  
-    
-        let $index = $(this).attr('saveId');
-        let inputId = '#input-' + $index;
-        let $value = $(inputId).val();
-    
-        previousArray[$index] = $value;
-        localStorage.setItem("storedPlans", JSON.stringify(previousArray));
-
-      });  
 
 
     //If the iD is false then the hour24 is 13 and hour12 is 1
@@ -136,5 +106,35 @@ $(document).ready(function() {
                         $planner.append($rowDiv);
 
       };
+
+    //Decides color of row based upon current hour of the day
+    function rowColor ($hourRow, hour) { 
+  
+      if ( hour < hour24) {
+        $hourRow.css("background-color", "#d3d3d3")
+
+      } else if ( hour > hour24) {
+        $hourRow.css("background-color", "#77dd77")
+
+      } else {
+        $hourRow.css("background-color", "#ff6961")
+      }
+    };
+
+    
+      //Calls the function on click
+      //Creates var so that they can be saved properly for recall out of local storage later
+      $(document).on('click', 'p', function(event) {
+        event.preventDefault();  
+    
+        let $index = $(this).attr('saveId');
+        let inputId = '#input-' + $index;
+        let $value = $(inputId).val();
+    
+        previousArray[$index] = $value;
+        localStorage.setItem("storedPlans", JSON.stringify(previousArray));
+
+      });  
+
 
   });
