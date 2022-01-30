@@ -1,4 +1,6 @@
 
+
+
   //Create constants and other variables to be called later
   //Set up format for moment.js
     const iD = false;
@@ -29,6 +31,7 @@
     
                 //Setting the var planner to the HTML id plannerContainer
                 let $planner = $('#plannerContainer');
+            
     
   
                     //A for loop that creates the scheduler
@@ -118,7 +121,7 @@
       }
     };
 
-    
+
       //Calls the function on click
       //Creates var so that they can be saved properly for recall out of local storage later
       $(document).on('click', 'p', function(event) {
@@ -132,5 +135,3 @@
         localStorage.setItem("storedPlans", JSON.stringify(previousArray));
 
       });  
-
-
