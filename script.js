@@ -1,7 +1,4 @@
 
-//Makes function avaialble after page load
-$(document).ready(function() {
-
   //Create constants and other variables to be called later
   //Set up format for moment.js
     const iD = false;
@@ -137,4 +134,3 @@ $(document).ready(function() {
       });  
 
 
-  });
